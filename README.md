@@ -1,6 +1,6 @@
 # Minimal Zeebe Exporter Demo
 
-Exporters allow you to tap into the Zeebe event stream on a partition and export selected events to other systems. You can filter events, perform transformations, and even trigger side-effects from an exporter.
+[Exporters](https://docs.zeebe.io/basics/exporters.html) allow you to tap into the Zeebe event stream on a partition and export selected events to other systems. You can filter events, perform transformations, and even trigger side-effects from an exporter.
 
 ## A Note on Exporters
 
