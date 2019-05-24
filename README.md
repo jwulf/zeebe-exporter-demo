@@ -42,7 +42,7 @@ public class DemoExporter implements Exporter {
 {
 ```
 
-5. If your IDE supports it, use code completion to implement the methods you need to implement the `Exporter`:
+5. If your IDE supports it, use code completion to implement the methods you need to fulfil the `Exporter` interface:
 
 ```java
 public class DemoExporter implements Exporter {
