@@ -71,13 +71,13 @@ The `configure` method allows your exporter to read any configuration specified 
 
 If your exporter does not throw in the `configure` method, then another instance is created, and the `open` method is called. In this method you can get a reference to a `Controller`. The `Controller` provides an asynchronous scheduler that can be used to implement operation batching (we will look at that in another post), and a method to mark a record as exported.
 
-### Export
-
-Whenever a record is available for export, the `export` method is called with the record to export. Remember that you must mark it as exported before you return from this method, otherwise it will persist forever.
-
 ### Close
 
 When the broker shuts down, the `close` method is called, and you can perform any clean-up that you need to.
+
+### Export
+
+Whenever a record is available for export, the `export` method is called with the record to export. Remember that you must mark it as exported before you return from this method, otherwise it will persist forever.
 
 ## Exporting a record
 
