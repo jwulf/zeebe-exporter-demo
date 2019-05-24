@@ -27,7 +27,7 @@ mvn archetype:generate -DgroupId=io.zeebe
 </dependency>
 ```
 
-3. Rename the file `src/main/java/io.zeebe/App.java` to `DemoExporter.java`, then edit it and import the `Exporter` class:
+3. Rename the file `src/main/java/io.zeebe/App.java` to `DemoExporter.java`, then edit it and import the `Exporter` interface:
 
 ```java
 import io.zeebe.exporter.api.spi.Exporter;
