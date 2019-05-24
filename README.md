@@ -52,11 +52,9 @@ public class DemoExporter implements Exporter {
     }
     
     public void close() {
-    
     }
     
-    public void export(Record record) {
-            
+    public void export(Record record) {       
     }
 }
 ```
