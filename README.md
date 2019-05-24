@@ -102,7 +102,7 @@ public class DemoExporter implements Exporter {
 }
 ```
 
-Now we will implement an `export` method to print out the record, and mark the record as exported:
+Now we will implement an `export` method to (a) print out the record, and (b) mark the record as exported:
 
 ```java
 public class DemoExporter implements Exporter {
