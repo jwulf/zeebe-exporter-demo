@@ -4,7 +4,7 @@
 
 ## A Note on Exporters
 
-One thing to note is that an exporter runs in the same JVM as the broker, and intensive computation in an exporter will impact the throughput of the broker. Also, a bug in an exporter can cause the broker disk to fill up. The event log is truncated only after all exporters have marked an event as exported. If your exporter is loaded, and it does not mark an event as exported, that event will be persisted forever.
+One thing to note is that an exporter runs in the same JVM as the broker, and intensive computation in an exporter will impact the throughput of the broker. Also, a bug in an exporter can cause the broker disk to fill up. The event log is truncated only after all exporters have marked an event as exported. If your exporter is loaded, and it does not mark an event as exported, that event will be persisted in the broker event log forever.
 
 ## Building an Exporter
 
