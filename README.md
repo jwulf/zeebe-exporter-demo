@@ -59,11 +59,23 @@ public class DemoExporter implements Exporter {
 }
 ```
 
-These methods are the lifecycle hooks for an exporter. The `configure` method allows your exporter to read any configuration specified for it in the `zeebe.cfg.toml` file. An instance of your exporter will be created, then thrown away, during broker start up. If your exporter throws in this method, the broker will halt. This prevents the broker from starting if an exporter doesn't have sufficient configuration to operate.
+## Exporter Lifecycle
+
+These methods are the lifecycle hooks for an exporter. 
+
+### Configure
+
+The `configure` method allows your exporter to read any configuration specified for it in the `zeebe.cfg.toml` file. An instance of your exporter will be created, then thrown away, during broker start up. If your exporter throws in this method, the broker will halt. This prevents the broker from starting if an exporter doesn't have sufficient configuration to operate.
+
+### Open
 
 If your exporter does not throw in the `configure` method, then another instance is created, and the `open` method is called. In this method you can get a reference to a `Controller`. The `Controller` provides an asynchronous scheduler that can be used to implement operation batching (we will look at that in another post), and a method to mark a record as exported.
 
-Whenever a record is available for export, the `export` method is called with the record to export.
+### Export
+
+Whenever a record is available for export, the `export` method is called with the record to export. Remember that you must mark it as exported before you return from this method, otherwise it will persist forever.
+
+### Close
 
 When the broker shuts down, the `close` method is called, and you can perform any clean-up that you need to.
 
