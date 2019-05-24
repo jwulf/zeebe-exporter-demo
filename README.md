@@ -27,7 +27,7 @@ mvn archetype:generate -DgroupId=io.zeebe
 </dependency>
 ```
 
-3. Rename the file `src/main/java/io.zeebe/App.java` to `[DemoExporter.java](http://demoexporter.java)`, then edit it and import the `Exporter` class:
+3. Rename the file `src/main/java/io.zeebe/App.java` to `DemoExporter.java`, then edit it and import the `Exporter` class:
 
 ```java
 import io.zeebe.exporter.api.spi.Exporter;
@@ -65,9 +65,9 @@ These methods are the lifecycle hooks for an exporter. The `configure` method al
 
 If your exporter does not throw in the `configure` method, then another instance is created, and the `open` method is called. In this method you can get a reference to a `Controller`. The `Controller` provides a scheduler that can be used to batch operations to process asynchronously, and a method to mark a record as exported.
 
-Whenever a record is available for export, the `e
+Whenever a record is available for export, the `export` method is called with the record to export.
 
-When the broker shuts down, the `close` method is called and you can perform any clean-up that you need to.
+When the broker shuts down, the `close` method is called, and you can perform any clean-up that you need to.
 
 ## Exporting a record
 
