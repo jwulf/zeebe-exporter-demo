@@ -2,9 +2,11 @@
 
 [Exporters](https://docs.zeebe.io/basics/exporters.html) allow you to tap into the Zeebe event stream on a partition and export selected events to other systems. You can filter events, perform transformations, and even trigger side-effects from an exporter.
 
-## A Note on Exporters
+## Important things to know about Exporters
 
-Two things to note are that an exporter runs in the same JVM as the broker, and intensive computation in an exporter will impact the throughput of the broker. You should do the minimal amount of processing possible in the exporter, and perform further transformation in another system after export. Also, a bug in an exporter can cause the broker disk to fill up. The event log is truncated only after all exporters have marked an event as exported. If your exporter is loaded, and it does not mark an event as exported, that event will be persisted in the broker event log forever.
+Two things to note are that an exporter runs in the same JVM as the broker, and intensive computation in an exporter will impact the throughput of the broker. You should do the minimal amount of processing possible in the exporter, and perform further transformation in another system after export. 
+
+Also, a bug in an exporter can cause broker disks to fill up. The event log is truncated only after all exporters have marked an event as exported. If your exporter is loaded, and it does not mark an event as exported, that event will be persisted in the broker event log forever.
 
 ## Building an Exporter
 
