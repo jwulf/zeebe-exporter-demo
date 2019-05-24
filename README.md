@@ -6,7 +6,7 @@
 
 Two things to note are that an exporter runs in the same JVM as the broker, and intensive computation in an exporter will impact the throughput of the broker. You should do the minimal amount of processing possible in the exporter, and perform further transformation in another system after export. 
 
-Also, a bug in an exporter can cause broker disks to fill up. The event log is truncated only after all exporters have marked an event as exported. If your exporter is loaded, and it does not mark an event as exported, that event will remain in the broker event log forever.
+Also, a bug in an exporter can cause broker disks to fill up. The event log is truncated only after all exporters have marked an event as exported. If your exporter is loaded, and it does not mark an event as exported, that event will remain in the broker event log forever. Even if you discard an event, you need to mark it as exported by calling the method that moves the exporter record position forward.
 
 ## Building an Exporter
 
