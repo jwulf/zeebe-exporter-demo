@@ -2,6 +2,8 @@
 
 [Exporters](https://docs.zeebe.io/basics/exporters.html) allow you to tap into the Zeebe event stream on a partition and export selected events to other systems. You can filter events, perform transformations, and even trigger side-effects from an exporter.
 
+Read a two-part series about building Zeebe exporters on the Zeebe blog: [Part One](https://zeebe.io/blog/2019/05/exporter-part-1/) | [Part Two](https://zeebe.io/blog/2019/05/exporter-part-2/).
+
 ## Important things to know about Exporters
 
 Two things to note are that an exporter runs in the same JVM as the broker, and intensive computation in an exporter will impact the throughput of the broker. You should do the minimal amount of processing possible in the exporter, and perform further transformation in another system after export.
@@ -34,7 +36,7 @@ mvn archetype:generate -DgroupId=io.zeebe
 3. Rename the file `src/main/java/io.zeebe/App.java` to `DemoExporter.java`, then edit it and import the `Exporter` interface:
 
 ```java
-import io.zeebe.exporter.api.spi.Exporter;
+import io.zeebe.exporter.api.Exporter;
 ```
 
 4. Remove the `main` method from the `App` class, rename it as `DemoExporter`, and implement `Exporter`:
