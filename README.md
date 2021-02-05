@@ -29,7 +29,7 @@ mvn archetype:generate -DgroupId=io.zeebe
 <dependency>
     <groupId>io.zeebe</groupId>
     <artifactId>zeebe-exporter-api</artifactId>
-    <version>0.17.0</version>
+    <version>0.26.0</version>
 </dependency>
 ```
 
